@@ -12,5 +12,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// check for collision with projectile/enemy and decrease health appropriately
+        //test
+
 	}
 }
