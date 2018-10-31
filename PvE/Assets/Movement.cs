@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0))
         {
-            var newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+            
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             var playerObject = GameObject.Find("Player");
@@ -30,7 +30,9 @@ public class Movement : MonoBehaviour {
 
             Vector2 direction = (mousePosition - playerPos);
             direction.Normalize();
-            direction *= 10;
+            direction *= 20;
+
+            var newProjectile = Instantiate(projectile, transform.position + (Vector3)direction*0.1f, transform.rotation) as GameObject;
 
             //Vector2 tmpDir = mousePosition - (Vector2)newProjectile.transform.position;
 
