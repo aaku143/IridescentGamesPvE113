@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
+    int health;
     public GameObject projectile;
-
     private GameObject newProjectile;
 
-    //private Vector2 mousePosition;
+    // Use this for initialization
+    void Start()
+    {
+        health = 100;
+    }
 
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 10.0f;
         var y = Input.GetAxis("Vertical") * Time.deltaTime * 10.0f;
 
         if (Input.GetMouseButtonDown(0))
         {
-            
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             var playerObject = GameObject.Find("Player");
@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour {
             direction.Normalize();
             direction *= 20;
 
-            var newProjectile = Instantiate(projectile, transform.position + (Vector3)direction*0.1f, transform.rotation) as GameObject;
+            var newProjectile = Instantiate(projectile, transform.position + (Vector3)direction * 0.1f, transform.rotation) as GameObject;
 
             //Vector2 tmpDir = mousePosition - (Vector2)newProjectile.transform.position;
 
@@ -70,5 +70,17 @@ public class Movement : MonoBehaviour {
         }
 
         transform.Translate(x, y, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            --health;
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 }
