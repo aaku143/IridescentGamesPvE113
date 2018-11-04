@@ -9,12 +9,14 @@ public class Player : MonoBehaviour
     long frameIntervalCount;
     public GameObject projectile;
     private GameObject newProjectile;
+    public RectTransform healthBar;
 
     // Use this for initialization
     void Start()
     {
         health = 100;
         frameIntervalCount = 10;
+        healthBar = this.transform.Find("HealthBar Canvas/Background/Foreground").GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -76,6 +78,7 @@ public class Player : MonoBehaviour
         }
 
         transform.Translate(x, y, 0);
+        transform.LookAt(Camera.main.transform);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -83,6 +86,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             --health;
+            healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
             if (health <= 0)
             {
                 Destroy(this.gameObject);
