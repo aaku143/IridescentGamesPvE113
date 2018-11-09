@@ -6,13 +6,17 @@ public class Player : MonoBehaviour
 {
 
     int health;
+    long frameIntervalCount;
     public GameObject projectile;
     private GameObject newProjectile;
+    public RectTransform healthBar;
 
     // Use this for initialization
     void Start()
     {
         health = 100;
+        frameIntervalCount = 10;
+        healthBar = this.transform.Find("HealthBar Canvas/Background/Foreground").GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -21,7 +25,7 @@ public class Player : MonoBehaviour
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 10.0f;
         var y = Input.GetAxis("Vertical") * Time.deltaTime * 10.0f;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || (Input.GetMouseButton(0) && frameIntervalCount % 10 == 0))
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -39,7 +43,11 @@ public class Player : MonoBehaviour
             //newProjectile.GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(newProjectile.transform.position, mousePosition, 100.0f / tmpDir.magnitude * Time.deltaTime);
             newProjectile.GetComponent<Rigidbody2D>().velocity = Vector3.MoveTowards(transform.position, direction, 100.0f);
             Destroy(newProjectile, 2.0f);
+            
+            frameIntervalCount = 0;
         }
+
+        frameIntervalCount++;
 
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -70,6 +78,7 @@ public class Player : MonoBehaviour
         }
 
         transform.Translate(x, y, 0);
+        transform.LookAt(Camera.main.transform);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -77,6 +86,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             --health;
+            healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
             if (health <= 0)
             {
                 Destroy(this.gameObject);
