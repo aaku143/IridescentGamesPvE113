@@ -219,7 +219,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BoundBox.cs" />
     <Compile Include="Assets\Enemy.cs" />
+    <Compile Include="Assets\EnemyShooter.cs" />
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\Projectile.cs" />
     <Compile Include="Assets\SpawnEnemy.cs" />
