@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61950070129646106}
   m_Layer: 11
   m_Name: EnemyShooter
-  m_TagString: Enemy
+  m_TagString: EnemyShooter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566514406947768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.9386826, y: 3.259668, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,14 +50,14 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566514406947768}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc29a396ccac5b445b91adb47d4dd809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1946149496276058, guid: f0d413b821c56c446b756f175fef00af, type: 2}
+  player: {fileID: 1178843013759702, guid: f0d413b821c56c446b756f175fef00af, type: 2}
   enemyProjectile: {fileID: 1156054343215846, guid: 633a703851298414e88246f32413ffef,
     type: 2}
 --- !u!212 &212929507630413232

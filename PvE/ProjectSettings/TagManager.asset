@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Pickup
   - HealthPack
+  - EnemyShooter
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Projectile
   - Pickup
   - Enemy
-  - 
+  - EnemyProjectile
   - 
   - 
   - 

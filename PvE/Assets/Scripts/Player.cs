@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public int health;
     public int maxHealth = 10;
     public GameObject projectile;
-    private GameObject newProjectile;
+    //private GameObject newProjectile;
     private Animator animator;
 
     // Use this for initialization
@@ -68,12 +68,11 @@ public class Player : MonoBehaviour
             direction.Normalize();
             direction *= 20;
 
-            var newProjectile = Instantiate(projectile, transform.position + (Vector3)direction * 0.1f, transform.rotation) as GameObject;
+            var newProjectile = Instantiate(projectile, transform.position + (Vector3)direction 
+                * 0.1f, transform.rotation) as GameObject;
 
-            //Vector2 tmpDir = mousePosition - (Vector2)newProjectile.transform.position;
-
-            //newProjectile.GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(newProjectile.transform.position, mousePosition, 100.0f / tmpDir.magnitude * Time.deltaTime);
-            newProjectile.GetComponent<Rigidbody2D>().velocity = Vector3.MoveTowards(transform.position, direction, 100.0f);
+            newProjectile.GetComponent<Rigidbody2D>().velocity = 
+                Vector3.MoveTowards(transform.position, direction, 100.0f);
             Destroy(newProjectile, 2.0f);
         }
     }
@@ -119,10 +118,16 @@ public class Player : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        else if (collision.gameObject.tag == "EnemyProjectile")
+        {
+            --health;
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
         else if (collision.gameObject.tag == "Pickup")
         {
-            //Debug.Log("Gun pickup");
-            //Debug.Log(collision.gameObject.name);
             if (collision.gameObject.name.Contains("GunPickup"))
             {
                 Debug.Log("gun pickup");
