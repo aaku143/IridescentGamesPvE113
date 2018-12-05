@@ -10,6 +10,7 @@ TagManager:
   - HealthPack
   - EnemyShooter
   - EnemyProjectile
+  - SlotImage
   layers:
   - Default
   - TransparentFX

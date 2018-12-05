@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Editor\InventoryEditor.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/joowonsuh/Google Drive/113/Repository/IridescentGamesPvE113/PvE/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

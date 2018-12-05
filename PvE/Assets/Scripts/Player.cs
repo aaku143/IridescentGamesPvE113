@@ -12,18 +12,8 @@ public class Player : MonoBehaviour
     //private GameObject newProjectile;
     private Animator animator;
 
-    /// <summary>
-    /// inventory
-    /// </summary>
-    //public Item item;
 
-
-    //private Inventory inventory = FindObjectOfType<Inventory>;
-
-
-    /// <summary>
-    /// /////////
-    /// </summary>
+    //private Inventory inventory;
 
 
     // Use this for initialization
@@ -74,7 +64,7 @@ public class Player : MonoBehaviour
     private void UpdatePickupAnim(int weaponNum)
     {
         animator.SetInteger("Pickup", weaponNum);
-        //inventory.AddItem(item);
+
     }
 
     private void MouseShooting()
@@ -156,11 +146,13 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("gun pickup");
                 UpdatePickupAnim(1);
+                //inventory.AddItem(1);
             }
             else if (collision.gameObject.name.Contains("SwordSpawn"))
             {
                 Debug.Log("sword pickup");
                 UpdatePickupAnim(2);
+                //inventory.AddItem(2);
             }
             Destroy(collision.gameObject);
         }
