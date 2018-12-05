@@ -62,14 +62,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BoundBox.cs" />
+    <Compile Include="Assets\Scripts\ChangeImage.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
     <Compile Include="Assets\Scripts\EnemyShooter.cs" />
     <Compile Include="Assets\Scripts\HealthPack.cs" />
     <Compile Include="Assets\Scripts\LoadSecneOnClick.cs" />
+    <Compile Include="Assets\Scripts\MonoBehaviour\Inventory.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\QuitOnClick.cs" />
+    <Compile Include="Assets\Scripts\Scriptable\item.cs" />
     <Compile Include="Assets\Scripts\SelectOnInput.cs" />
     <Compile Include="Assets\Scripts\SpawnEnemy.cs" />
     <Compile Include="Assets\Scripts\SpawnPickup.cs" />

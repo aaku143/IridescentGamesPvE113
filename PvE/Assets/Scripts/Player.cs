@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,20 @@ public class Player : MonoBehaviour
     public GameObject projectile;
     //private GameObject newProjectile;
     private Animator animator;
+
+    /// <summary>
+    /// inventory
+    /// </summary>
+    //public Item item;
+
+
+    //private Inventory inventory = FindObjectOfType<Inventory>;
+
+
+    /// <summary>
+    /// /////////
+    /// </summary>
+
 
     // Use this for initialization
     void Start()
@@ -33,6 +48,12 @@ public class Player : MonoBehaviour
         transform.Translate(x, y, 0);
     }
 
+    private void CheckGameEnd() { 
+        if(health <= 0){
+            SceneManager.LoadScene(2);
+        }
+    }
+
     private void UpdateMovementAnim(float x, float y)
     {
 
@@ -53,6 +74,7 @@ public class Player : MonoBehaviour
     private void UpdatePickupAnim(int weaponNum)
     {
         animator.SetInteger("Pickup", weaponNum);
+        //inventory.AddItem(item);
     }
 
     private void MouseShooting()
@@ -116,6 +138,7 @@ public class Player : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+                CheckGameEnd();
             }
         }
         else if (collision.gameObject.tag == "EnemyProjectile")
@@ -124,6 +147,7 @@ public class Player : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+                CheckGameEnd();
             }
         }
         else if (collision.gameObject.tag == "Pickup")

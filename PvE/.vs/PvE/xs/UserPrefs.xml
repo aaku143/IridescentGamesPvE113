@@ -1,10 +1,8 @@
 ﻿<Properties StartupConfiguration="{B9139CD8-A9C3-746A-6B2F-0AFE7FB1C7B4}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SelectOnInput.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ChangeImage.cs">
     <Files>
-      <File FileName="Assets/Scripts/LoadSecneOnClick.cs" Line="3" Column="19" />
-      <File FileName="Assets/Scripts/QuitOnClick.cs" Line="17" Column="2" />
-      <File FileName="Assets/Scripts/SelectOnInput.cs" Line="27" Column="32" />
-      <File FileName="Assets/Scripts/SelectOnInput.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ChangeImage.cs" Line="4" Column="35" />
+      <File FileName="Assets/Scripts/LoadSecneOnClick.cs" Line="4" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
