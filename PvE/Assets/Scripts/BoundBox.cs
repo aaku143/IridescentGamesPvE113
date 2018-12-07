@@ -11,6 +11,7 @@ public class BoundBox : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         transform.position = player.transform.position;
+        //Debug.Log("width" + GetComponent<Camera>().pixelWidth + "Height" + GetComponent<Camera>().pixelHeight);
 	}
 	
 	// Update is called once per frame

@@ -14,7 +14,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1946149496276058, guid: f0d413b821c56c446b756f175fef00af,
+      objectReference: {fileID: 1178843013759702, guid: f0d413b821c56c446b756f175fef00af,
         type: 2}
     - target: {fileID: 0}
       propertyPath: m_Layer
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9442ef9d28f426247b71439606134ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1946149496276058, guid: f0d413b821c56c446b756f175fef00af, type: 2}
+  player: {fileID: 1178843013759702, guid: f0d413b821c56c446b756f175fef00af, type: 2}
 --- !u!212 &212266737821879728
 SpriteRenderer:
   m_ObjectHideFlags: 1

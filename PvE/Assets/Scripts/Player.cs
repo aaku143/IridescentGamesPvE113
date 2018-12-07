@@ -7,7 +7,13 @@ public class Player : MonoBehaviour
 
     public int health;
     public int maxHealth = 10;
+    public float movementSpeed;
+
+    private int weaponPickup = 0;
+
+    long frameIntervalCount;
     public GameObject projectile;
+    public GameObject swordProjectile;
     private GameObject newProjectile;
     private Animator animator;
 
@@ -15,14 +21,15 @@ public class Player : MonoBehaviour
     void Start()
     {
         health = 10;
+        frameIntervalCount = 10;
         animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 10.0f;
-        var y = Input.GetAxis("Vertical") * Time.deltaTime * 10.0f;
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
+        var y = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
 
         UpdateMovementAnim(x, y);
 
@@ -31,6 +38,11 @@ public class Player : MonoBehaviour
         KeyboardShooting();
 
         transform.Translate(x, y, 0);
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
     private void UpdateMovementAnim(float x, float y)
@@ -57,24 +69,61 @@ public class Player : MonoBehaviour
 
     private void MouseShooting()
     {
-        if (Input.GetMouseButtonDown(0))
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        var playerObject = GameObject.Find("Player");
+        Vector3 playerPos = playerObject.transform.position;
+
+        Vector2 direction = (mousePosition - playerPos);
+        direction.Normalize();
+        direction *= 20;
+
+        if (Input.GetMouseButton(0))
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            var playerObject = GameObject.Find("Player");
-            Vector3 playerPos = playerObject.transform.position;
+            if (frameIntervalCount % 10 == 0)
+            {
+                if (weaponPickup == 1)
+                {
+                    var newProjectile = Instantiate(projectile, transform.position + (Vector3)direction * 0.1f, Quaternion.Euler(0, 0, Vector2.SignedAngle(playerPos, mousePosition - playerPos))) as GameObject;
 
-            Vector2 direction = (mousePosition - playerPos);
-            direction.Normalize();
-            direction *= 20;
+                    //Debug.Log(Vector2.SignedAngle(playerPos, mousePosition - playerPos));
 
-            var newProjectile = Instantiate(projectile, transform.position + (Vector3)direction * 0.1f, transform.rotation) as GameObject;
+                    newProjectile.GetComponent<Rigidbody2D>().velocity = Vector3.MoveTowards(transform.position, direction, 100.0f);
+                    Destroy(newProjectile, 2.0f);
 
-            //Vector2 tmpDir = mousePosition - (Vector2)newProjectile.transform.position;
+                    frameIntervalCount = 0;
+                }
+            }
+            else
+            {
+                if (weaponPickup == 2)
+                {
+                    MouseSword(direction);
+                    frameIntervalCount = 0;
+                    return;
+                }
+            }
+        }
 
-            //newProjectile.GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(newProjectile.transform.position, mousePosition, 100.0f / tmpDir.magnitude * Time.deltaTime);
-            newProjectile.GetComponent<Rigidbody2D>().velocity = Vector3.MoveTowards(transform.position, direction, 100.0f);
-            Destroy(newProjectile, 2.0f);
+        frameIntervalCount++;
+    }
+
+    private void MouseSword(Vector2 direction)
+    {
+        if (direction.x >= 0)
+        {
+            var newProjectile = Instantiate(swordProjectile, transform.position + new Vector3(0.5f, 0f, 0f), transform.rotation) as GameObject;
+
+            newProjectile.GetComponent<Rigidbody2D>().velocity = Vector3.MoveTowards(transform.position, new Vector3(20.0f, 0.0f, 0.0f), 50.0f);
+            animator.SetInteger("Sword", 1);
+        }
+        else
+        {
+            var newProjectile = Instantiate(swordProjectile, transform.position + new Vector3(-0.5f,0f,0f), Quaternion.Euler(0, 0, 180)) as GameObject;
+
+            newProjectile.GetComponent<Rigidbody2D>().velocity = Vector3.MoveTowards(transform.position, new Vector3(-20.0f, 0.0f, 0.0f), 50.0f);
+            animator.SetInteger("Sword", 0);
         }
     }
 
@@ -121,16 +170,16 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Pickup")
         {
-            //Debug.Log("Gun pickup");
-            //Debug.Log(collision.gameObject.name);
             if (collision.gameObject.name.Contains("GunPickup"))
             {
                 Debug.Log("gun pickup");
+                weaponPickup = 1;
                 UpdatePickupAnim(1);
             }
             else if (collision.gameObject.name.Contains("SwordSpawn"))
             {
                 Debug.Log("sword pickup");
+                weaponPickup = 2;
                 UpdatePickupAnim(2);
             }
             Destroy(collision.gameObject);
