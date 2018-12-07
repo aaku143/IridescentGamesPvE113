@@ -12,7 +12,6 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-<<<<<<< HEAD
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300006, guid: 90e85b8ab171b4f4fafd43a1cdbd1a51,
@@ -32,14 +31,6 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: movementSpeed
       value: 50
-=======
-      propertyPath: m_UsedByComposite
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
->>>>>>> 80ad1b84ef502e051aa0e8805a71ce86ea9e2fe4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
@@ -72,13 +63,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1942354977241948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 10.16889, y: 5.458146, z: 0}
+  m_LocalPosition: {x: -22.43655, y: -6.9205484, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
-=======
-  m_LocalPosition: {x: -1.297584, y: -1.6290967, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
->>>>>>> 80ad1b84ef502e051aa0e8805a71ce86ea9e2fe4
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
