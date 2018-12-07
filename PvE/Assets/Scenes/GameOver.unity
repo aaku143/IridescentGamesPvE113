@@ -165,7 +165,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD:PvE/Assets/test.unity
   m_TargetDisplay: 0
 --- !u!224 &196614734
 RectTransform:
@@ -293,7 +292,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &988329638
-=======
   m_Sprite: {fileID: 21300002, guid: e55b2288951344571a5b0a9f6b1aeb7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -306,7 +304,6 @@ GameObject:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &109171253
->>>>>>> 80ad1b84ef502e051aa0e8805a71ce86ea9e2fe4:PvE/Assets/Scenes/GameOver.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -330,7 +327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3a7d47b3e7645d49d44907bdfde07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:PvE/Assets/test.unity
   player: {fileID: 988329637}
 --- !u!81 &988329640
 AudioListener:
@@ -439,7 +435,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 53b8b30f7be152743be7c227d540b929, type: 3}
   player: {fileID: 1701452757}
 --- !u!1 &1097254235
-=======
   image1: {fileID: 109171251}
   image2: {fileID: 1739314486}
   text: {fileID: 769109409}
@@ -447,7 +442,6 @@ MonoBehaviour:
   Timestamp: 0
   Delay: 1
 --- !u!1 &149581734
->>>>>>> 80ad1b84ef502e051aa0e8805a71ce86ea9e2fe4:PvE/Assets/Scenes/GameOver.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -479,7 +473,6 @@ Camera:
   m_GameObject: {fileID: 149581734}
   m_Enabled: 1
   serializedVersion: 2
-<<<<<<< HEAD:PvE/Assets/test.unity
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
@@ -534,7 +527,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1251901434
-=======
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
@@ -568,7 +560,6 @@ GameObject:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &149581737
->>>>>>> 80ad1b84ef502e051aa0e8805a71ce86ea9e2fe4:PvE/Assets/Scenes/GameOver.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -783,7 +774,6 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:PvE/Assets/test.unity
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
@@ -808,7 +798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62068e836bad6f741b537abc7c728750, type: 3}
 --- !u!20 &1969634712
 Camera:
-=======
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
@@ -821,13 +810,11 @@ Camera:
   m_DynamicPixelsPerUnit: 1
 --- !u!223 &1394921407
 Canvas:
->>>>>>> 80ad1b84ef502e051aa0e8805a71ce86ea9e2fe4:PvE/Assets/Scenes/GameOver.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1394921403}
   m_Enabled: 1
-<<<<<<< HEAD:PvE/Assets/test.unity
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0.07515207, b: 0.5735294, a: 0}
@@ -848,7 +835,6 @@ Canvas:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-=======
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
@@ -861,7 +847,6 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
->>>>>>> 80ad1b84ef502e051aa0e8805a71ce86ea9e2fe4:PvE/Assets/Scenes/GameOver.unity
   m_TargetDisplay: 0
 --- !u!1 &1739314486
 GameObject:
