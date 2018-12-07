@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChangeBackGroud : MonoBehaviour {
     public GameObject image1;
@@ -40,6 +41,11 @@ public class ChangeBackGroud : MonoBehaviour {
             }
             Timestamp = timeNow;
             isImage1 = true;
+        }
+        var sceneID = SceneManager.GetActiveScene().buildIndex;
+        if ( sceneID == 2 && Input.anyKey)
+        {
+            SceneManager.LoadScene(0);//back to main menu
         }
     }
 }

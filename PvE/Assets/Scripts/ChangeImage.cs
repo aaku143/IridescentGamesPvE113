@@ -29,10 +29,7 @@
 //            yield return new WaitForSeconds(1);
 //            nextImage.SetActive(false);
 //            text.SetActive(false);
-//            if (Input.anyKey)
-//            {
-//                SceneManager.LoadScene(0);//back to main menu
-//            }
+//            
 //            yield return new WaitForSeconds(1);
 //        }
 //    }
