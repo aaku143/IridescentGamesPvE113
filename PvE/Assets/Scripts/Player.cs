@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class Player : MonoBehaviour
     public GameObject swordProjectile;
     private GameObject newProjectile;
     private Animator animator;
+
+
+    //private Inventory inventory;
+
 
     // Use this for initialization
     void Start()
@@ -45,6 +50,12 @@ public class Player : MonoBehaviour
         return health;
     }
 
+    private void CheckGameEnd() { 
+        if(health <= 0){
+            SceneManager.LoadScene(2);
+        }
+    }
+
     private void UpdateMovementAnim(float x, float y)
     {
 
@@ -65,6 +76,7 @@ public class Player : MonoBehaviour
     private void UpdatePickupAnim(int weaponNum)
     {
         animator.SetInteger("Pickup", weaponNum);
+
     }
 
     private void MouseShooting()
@@ -166,6 +178,16 @@ public class Player : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+                CheckGameEnd();
+            }
+        }
+        else if (collision.gameObject.tag == "EnemyProjectile")
+        {
+            --health;
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+                CheckGameEnd();
             }
         }
         else if (collision.gameObject.tag == "Pickup")
@@ -175,12 +197,14 @@ public class Player : MonoBehaviour
                 Debug.Log("gun pickup");
                 weaponPickup = 1;
                 UpdatePickupAnim(1);
+                //inventory.AddItem(1);
             }
             else if (collision.gameObject.name.Contains("SwordSpawn"))
             {
                 Debug.Log("sword pickup");
                 weaponPickup = 2;
                 UpdatePickupAnim(2);
+                //inventory.AddItem(2);
             }
             Destroy(collision.gameObject);
         }

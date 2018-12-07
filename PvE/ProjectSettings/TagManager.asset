@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Pickup
   - HealthPack
+  - EnemyShooter
+  - EnemyProjectile
+  - SlotImage
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - Projectile
   - Pickup
   - Enemy
-  - 
+  - EnemyProjectile
   - 
   - 
   - 
@@ -44,6 +47,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 1671459751
+    locked: 0
+  - name: ForGround
+    uniqueID: 232006147
     locked: 0
   - name: Test
     uniqueID: 1214224587
